@@ -1,0 +1,69 @@
+library(quantmod)
+library(zoo)
+install.packages("tseries")
+library(tseries)
+mdate <- "2001-01-01"
+amazon <- getSymbols("AMZN", from=mdate, auto.assign=F)
+print(amazon)
+plot(amazon)
+ts_amazon()
+is.ts(amazon)
+View(amazon)
+
+
+
+# INDUSTRIALS: SKF/ATLAS COPCO/ BOLIDEN/ EPIROC/ SANDVIK / ABB
+SKF <- getSymbols("SKF-B.ST", from="2008-01-01", auto.assign=F)
+print(SKF)
+View(SKF)
+SKF.ts <- SKF [,"SKF-B.ST.Close"]
+ts.plot(SKF.ts, main="SKF")
+
+# atlas
+atlas <- getSymbols("ATCO-A.ST", from="2008-01-01", auto.assign=F)
+print(atlas)
+View(atlas)
+atlas.ts <- atlas[,"ATCO-A.ST.Close"]
+ts.plot(atlas.ts, main="ATLAS")
+
+# BOLIDEN
+boliden <- getSymbols("BOL.ST", from="2008-01-01", auto.assign=F)
+print(boliden)
+View(boliden)
+boliden.ts <- boliden[,"BOL.ST.Close"]
+ts.plot(boliden.ts, main="BOLIDEN")
+
+# EPIROC
+epiroc <- getSymbols("EPI-A.ST", from="2008-01-01", auto.assign=F)
+epiroc.ts <- epiroc[,"EPI-A.ST.Close"]
+ts.plot(epiroc.ts, main="EPIROC")
+
+# SANVDIK
+sandvik <- getSymbols("SAND.ST", from="2008-01-01", auto.assign=F)
+sandvik.ts <- sandvik[,"SAND.ST.Close"]
+ts.plot(sandvik.ts, main="SANDVIK")
+
+# ABB
+abb <- getSymbols("ABB.ST", from="2008-01-01", auto.assign=F)
+abb.ts <- abb[,"ABB.ST.Close"]
+ts.plot(abb.ts, main="ABB")
+
+
+par(mfrow=c(3,3))
+ts.plot(SKFts, main="SKF")
+ts.plot(atlas.ts, main="ATLAS")
+ts.plot(epiroc.ts, main="EPIROC")
+ts.plot(sandvik.ts, main="SANDVIK")
+ts.plot(abb.ts, main="ABB")
+ts.plot(boliden.ts, main="BOLIDEN")
+
+# key reversal: occurs when the previous trend's last candle that
+# points to the same direction as the trend itself.
+# so the key reversal candle stick with open at least higher or same
+# as the day befort but close lower than previous days open.
+
+install.packages("ggplot2")
+library(ggplot2)
+library(dplyr)
+Industrialsindex not fin..txt
+Displaying SVAR.txt.
